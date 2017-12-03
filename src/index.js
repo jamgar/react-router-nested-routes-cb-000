@@ -19,7 +19,9 @@ ReactDOM.render(
   (<Provider store={store} >
     <Router history={browserHistory} >
       <Route path="/" component={App} />
-      <Route path='/movies' component={MoviesPage}/>
+      <Route path='/movies' component={MoviesPage}>
+        <Route path="/movies/:id" compenent={MoviesShow} />
+      </Route>
     </Router>
   </Provider>),
 document.getElementById('container'));

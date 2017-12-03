@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Route } from 'react-router-dom'
 import {bindActionCreators} from 'redux';
-
 import {fetchMovies} from '../actions'
 
 import MoviesList from '../components/MoviesList';
+import MovieShow from './MoviesShow'
 
 class MoviesPage extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <MoviesList movies={this.props.movies} />
-      </div>)
+        {this.props.children}
+      </div>
+    )
   }
 }
-
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     movies: state.movies
   }
